@@ -4,10 +4,6 @@ package Loja;
 
 import java.util.Date;
 
-
-
-
-
 public class Produto extends CategoriaProduto{
     
     private String qntEstoque;
