@@ -5,6 +5,9 @@ public class Fornecedor extends CategoriaProduto {
     private String cnpj;
     private String telefone;
 
+    public Fornecedor(){
+        
+    }
     public String getCnpj() {
         return cnpj;
     }
