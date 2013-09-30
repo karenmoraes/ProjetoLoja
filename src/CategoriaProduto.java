@@ -1,10 +1,31 @@
 
+import java.util.Date;
+
+
 public class CategoriaProduto {
     
     private String nome;
     private int codigo;
     private String descricao;
     private int qntestoque;
+    private double valor;
+    private Date datacompra;
+
+    public Date getDatacompra() {
+        return datacompra;
+    }
+
+    public void setDatacompra(Date datacompra) {
+        this.datacompra = datacompra;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
 
     public String getNome() {
         return nome;
