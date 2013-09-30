@@ -1,9 +1,12 @@
 
 import java.util.Date;
 
+public class Funcionario extends Pessoa {
 
-public class Funcionario extends Pessoa{
     private String codigo;
+    private Date admissao;
+    private double salario;
+    private String cargo;
 
     public String getCodigo() {
         return codigo;
@@ -36,9 +39,4 @@ public class Funcionario extends Pessoa{
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
-    private Date admissao;
-    private double salario;
-    private String cargo;
-    
-    
 }
