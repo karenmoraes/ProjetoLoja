@@ -1,5 +1,6 @@
 
-public class Cliente extends Pessoa{
+public class Cliente extends Pessoa {
+
     private String codigo;
     private String email;
     private int dependente;
@@ -45,5 +46,5 @@ public class Cliente extends Pessoa{
     public void setLimite(double limite) {
         this.limite = limite;
     }
-    
 }
+
