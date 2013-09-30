@@ -7,6 +7,9 @@ public class Cliente extends Pessoa {
     private double salario;
     private double limite;
 
+    public Cliente(){
+        
+    }
     public String getCodigo() {
         return codigo;
     }
