@@ -5,7 +5,7 @@ package Loja;
 import java.util.Date;
 
 
-public class Pessoa {
+public class Pessoa extends Endereco{
     
     private String nome;
     private String cpf;
