@@ -5,6 +5,15 @@ package Loja;
 public class Socio extends Pessoa{
     private String cnpj;
     private String enpresa;
+    private double investimento;
+
+    public double getInvestimento() {
+        return investimento;
+    }
+
+    public void setInvestimento(double investimento) {
+        this.investimento = investimento;
+    }
 
     public String getCnpj() {
         return cnpj;
