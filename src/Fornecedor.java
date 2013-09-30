@@ -1,10 +1,9 @@
 
-public class Fornecedor extends CategoriaProduto{
-    
+public class Fornecedor extends CategoriaProduto {
+
     private String nome;
     private String cnpj;
     private String telefone;
-    
 
     public String getCnpj() {
         return cnpj;
@@ -21,9 +20,4 @@ public class Fornecedor extends CategoriaProduto{
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    
-    
-   
-
-    
 }
