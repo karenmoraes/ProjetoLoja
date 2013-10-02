@@ -15,8 +15,8 @@ public class FormaPagamento extends Pessoa{
     private double avista;
     private double cartao;
 
-    public FormaPagamento(int compra, int vezes, double total, double cheque, double avista, double cartao, String nome, String cpf, String rg, Date datanascimento, int sexo, String telefone, String rua, String bairro, String cidade, int numero, String cep) {
-        super(nome, cpf, rg, datanascimento, sexo, telefone, rua, bairro, cidade, numero, cep);
+    public FormaPagamento(int compra, int vezes, double total, double cheque, double avista, double cartao, String nome, String cpf, String rg, Date datanascimento, int sexo, String telefone) {
+        super(nome, cpf, rg, datanascimento, sexo, telefone);
         this.compra = compra;
         this.vezes = vezes;
         this.total = total;
@@ -24,6 +24,8 @@ public class FormaPagamento extends Pessoa{
         this.avista = avista;
         this.cartao = cartao;
     }
+
+   
 
     public Produto getP() {
         return p;
