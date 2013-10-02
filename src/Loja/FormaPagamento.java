@@ -22,6 +22,7 @@ public class FormaPagamento extends Pessoa{
         this.total = total;
         this.cheque = cheque;
         this.avista = avista;
+        
         this.cartao = cartao;
     }
 
