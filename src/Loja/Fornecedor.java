@@ -9,6 +9,11 @@ public class Fornecedor extends CategoriaProduto {
     private String cnpj;
     private String telefone;
 
+    @Override
+    public String toString() {
+        return "Fornecedor{" + "nome=" + nome + ", cnpj=" + cnpj + ", telefone=" + telefone + '}';
+    }
+
     public Fornecedor(){
         
     }
