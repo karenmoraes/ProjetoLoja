@@ -18,8 +18,8 @@ public class Cliente extends Pessoa {
     private double salario;
     private double limite;
 
-    public Cliente(String codigo, String email, int dependente, double salario, double limite, String nome, String cpf, String rg, Date datanascimento, int sexo, String telefone, String rua, String bairro, String cidade, int numero, String cep) {
-        super(nome, cpf, rg, datanascimento, sexo, telefone, rua, bairro, cidade, numero, cep);
+    public Cliente(String codigo, String email, int dependente, double salario, double limite, String nome, String cpf, String rg, Date datanascimento, int sexo, String telefone) {
+        super(nome, cpf, rg, datanascimento, sexo, telefone);
         this.codigo = codigo;
         this.email = email;
         this.dependente = dependente;
@@ -27,6 +27,7 @@ public class Cliente extends Pessoa {
         this.limite = limite;
     }
 
+  
   
     public String getCodigo() {
         return codigo;
