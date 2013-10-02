@@ -11,11 +11,21 @@ public class Funcionario extends Pessoa {
     private double salario;
     private String cargo;
 
-    public Funcionario(){
-        
+    public Funcionario(String codigo, Date admissao, double salario, String cargo, String nome, String cpf, String rg, Date datanascimento, int sexo, String telefone, String rua, String bairro, String cidade, int numero, String cep) {
+        super(nome, cpf, rg, datanascimento, sexo, telefone, rua, bairro, cidade, numero, cep);
+        this.codigo = codigo;
+        this.admissao = admissao;
+        this.salario = salario;
+        this.cargo = cargo;
     }
+
     public String getCodigo() {
         return codigo;
+    }
+
+    @Override
+    public String toString() {
+        return "Funcionario{" + "codigo=" + codigo + ", admissao=" + admissao + ", salario=" + salario + ", cargo=" + cargo + '}';
     }
 
     public void setCodigo(String codigo) {
