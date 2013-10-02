@@ -6,19 +6,12 @@ import java.util.Date;
 public class CategoriaProduto {
     
     private String nome;
-    private int codigo;
+    private String codigo;
     private String descricao;    
     private double valor;
     private Date datafabricacao;
 
-    public Date getDatacompra() {
-        return datafabricacao;
-    }
-
-    public void setDatacompra(Date datafabricacao) {
-        this.datafabricacao= datafabricacao;
-    }
-
+   
     public double getValor() {
         return valor;
     }
@@ -35,13 +28,23 @@ public class CategoriaProduto {
         this.nome = nome;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
+
+    public Date getDatafabricacao() {
+        return datafabricacao;
+    }
+
+    public void setDatafabricacao(Date datafabricacao) {
+        this.datafabricacao = datafabricacao;
+    }
+
+   
 
     public String getDescricao() {
         return descricao;
