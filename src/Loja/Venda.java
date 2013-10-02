@@ -1,28 +1,32 @@
-
 package Loja;
 
-import javax.swing.JOptionPane;
+import java.util.Date;
 
-public class Venda extends Produto{   
+public class Venda extends Produto {
+
     private int qntvendido;
-    private Cliente c = new Cliente();
-    private CategoriaProduto p = new CategoriaProduto();
-    
-    public void clientecompra(){
-        c.getNome();
-        c.getSexo();
-        c.getCodigo();
-        c.getLimite();
-        qntvendido = Integer.parseInt(JOptionPane.showInputDialog("Informe a quantidade do produto comprado"));
-        p.setNome("Informe o nome do produto");
-        p.setCodigo("Informe o código do produto");
-        
+
+    public Venda(int qntvendido, String qntEstoque, Date datacompra) {
+        super(qntEstoque, datacompra);
+        this.qntvendido = qntvendido;
     }
-    public void funcionariovenda(double total){
-        total = qntvendido + (p.getValor()*0.10);
-        JOptionPane.showMessageDialog(null, "O funcionario ganhou " + total + " comissão ");
-              
-        
+
+    public Venda(int qntvendido) {
+        this.qntvendido = qntvendido;
     }
+
+    public int getQntvendido() {
+        return qntvendido;
+    }
+
+    public void setQntvendido(int qntvendido) {
+        this.qntvendido = qntvendido;
+    }
+
+
     
+    @Override
+    public String toString() {
+        return "Venda{" + "qntvendido=" + qntvendido + '}';
+    }
 }
