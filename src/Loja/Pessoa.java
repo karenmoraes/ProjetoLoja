@@ -21,8 +21,7 @@ public class Pessoa extends Endereco{
         return "Pessoa{" + "nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", datanascimento=" + datanascimento + ", sexo=" + sexo + ", telefone=" + telefone + '}';
     }
 
-    public Pessoa(String nome, String cpf, String rg, Date datanascimento, int sexo, String telefone, String rua, String bairro, String cidade, int numero, String cep) {
-        super(rua, bairro, cidade, numero, cep);
+    public Pessoa(String nome, String cpf, String rg, Date datanascimento, int sexo, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
@@ -30,6 +29,8 @@ public class Pessoa extends Endereco{
         this.sexo = sexo;
         this.telefone = telefone;
     }
+
+  
     public String getNome() {
         return nome;
     }
