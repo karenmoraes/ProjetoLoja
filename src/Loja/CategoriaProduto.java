@@ -11,6 +11,9 @@ public class CategoriaProduto {
     private double valor;
     private Date datafabricacao;
 
+    public CategoriaProduto() {
+    }
+
    
     public double getValor() {
         return valor;
@@ -52,6 +55,11 @@ public class CategoriaProduto {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    @Override
+    public String toString() {
+        return "CategoriaProduto{" + "nome=" + nome + ", codigo=" + codigo + ", descricao=" + descricao + ", valor=" + valor + ", datafabricacao=" + datafabricacao + '}';
     }
 
    
