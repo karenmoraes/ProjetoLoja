@@ -267,7 +267,7 @@ public class FuncionarioDAOImplements implements FuncionarioDAO {
                result = true;
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao pesquisar o funcionario " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao inserir o login ou senha " + e.getMessage());
         } finally {
             try {
                 ConnectionFactory.closeConnection(con, pstm, rs);
