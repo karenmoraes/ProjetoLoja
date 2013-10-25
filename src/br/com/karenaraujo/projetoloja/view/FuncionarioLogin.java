@@ -4,6 +4,11 @@
  */
 package br.com.karenaraujo.projetoloja.view;
 
+import br.com.karenaraujo.projetoloja.controller.FuncionarioController;
+import br.com.karenaraujo.projetoloja.model.Funcionario;
+import br.com.karenaraujo.projetoloja.model.percistencia.FuncionarioDAOImplements;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ezio_joao
@@ -28,8 +33,8 @@ public class FuncionarioLogin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        ctLogin = new javax.swing.JTextField();
-        ctSenha = new javax.swing.JTextField();
+        txLogin = new javax.swing.JTextField();
+        txSenha = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         btconsultar = new javax.swing.JButton();
 
@@ -39,15 +44,15 @@ public class FuncionarioLogin extends javax.swing.JFrame {
 
         jLabel1.setText("Login:");
 
-        ctLogin.addActionListener(new java.awt.event.ActionListener() {
+        txLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctLoginActionPerformed(evt);
+                txLoginActionPerformed(evt);
             }
         });
 
-        ctSenha.addActionListener(new java.awt.event.ActionListener() {
+        txSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctSenhaActionPerformed(evt);
+                txSenhaActionPerformed(evt);
             }
         });
 
@@ -73,8 +78,8 @@ public class FuncionarioLogin extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ctLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ctSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(84, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -86,11 +91,11 @@ public class FuncionarioLogin extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ctLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ctSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addComponent(btconsultar)
@@ -112,25 +117,36 @@ public class FuncionarioLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btconsultarActionPerformed
-        Principal p = new Principal();
-        p.setLocationRelativeTo(null);
-        p.setExtendedState(p.MAXIMIZED_BOTH);
-        p.setVisible(true);
+     String login = txLogin.getText();
+     String senha = txSenha.getText();
+        FuncionarioController fc = new FuncionarioController();
+     if(fc.Login(login, senha)==true){
+      
+            Principal p = new Principal();
+            p.setLocationRelativeTo(null);
+            p.setExtendedState(p.MAXIMIZED_BOTH);
+            p.setVisible(true);
+       
+       }else{
+           JOptionPane.showMessageDialog(null, "Login e senha incorreta!");
+       }
+                    
+        
+
+
     }//GEN-LAST:event_btconsultarActionPerformed
 
-    private void ctLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ctLoginActionPerformed
+    private void txLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txLoginActionPerformed
+    }//GEN-LAST:event_txLoginActionPerformed
 
-    private void ctSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ctSenhaActionPerformed
+    private void txSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txSenhaActionPerformed
+    }//GEN-LAST:event_txSenhaActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btconsultar;
-    private javax.swing.JTextField ctLogin;
-    private javax.swing.JTextField ctSenha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txLogin;
+    private javax.swing.JTextField txSenha;
     // End of variables declaration//GEN-END:variables
 }

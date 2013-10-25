@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  *
  * @author ezio_joao
  */
-public class FuncionarioDAOImplement implements FuncionarioDAO {
+public class FuncionarioDAOImplements implements FuncionarioDAO {
 
     private static final String INSERIR = "insert into Funcionario(nome, cpf, rg, login, senha, telefone,"
             + " sexo, salario, cargo, data_nascimento, endereco_codigo)values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
@@ -30,6 +30,7 @@ public class FuncionarioDAOImplement implements FuncionarioDAO {
             + "where id = ?;";
     private static final String LISTBYID = "select * from Funcionario where codigo = ?;";
     private static final String LISTBYNOME = "select * from Funcionario where nome like ?;";
+    private static final String LOGIN = "select * from funcionario where login = ? and senha = ?;";
 
     public int Salvar(Funcionario f) {
         if (f.getCodigo() == 0) {
@@ -251,4 +252,31 @@ public class FuncionarioDAOImplement implements FuncionarioDAO {
         return funcionario;
 
     }
+      public boolean Login(String login, String senha) {
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        boolean result = false;
+        try {
+            con = ConnectionFactory.getConnection();
+            pstm = con.prepareStatement(LOGIN);
+            pstm.setString(1,  login );
+            pstm.setString(2, senha);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+               result = true;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao pesquisar o funcionario " + e.getMessage());
+        } finally {
+            try {
+                ConnectionFactory.closeConnection(con, pstm, rs);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Erro ao fechar a conexão");
+            }
+        }
+        return result;
+
+    }
+    
 }
