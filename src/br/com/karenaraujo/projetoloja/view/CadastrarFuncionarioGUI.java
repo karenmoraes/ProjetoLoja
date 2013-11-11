@@ -36,6 +36,22 @@ public class CadastrarFuncionarioGUI extends javax.swing.JFrame {
 
         FuncionarioController fc = new FuncionarioController();
         Funcionario u = fc.listById(idFuncionario);
+        ctNome.setText(u.getNome());
+        ctCpf.setText(u.getCpf());
+        ctRg.setText(u.getRg());
+        ctLogin.setText(u.getLogin());
+        ctSenha.setText(u.getSenha());
+        ctSalario.setText(String.valueOf(u.getSalario()));
+        ctTelefone.setText(u.getTelefone());
+        ctCargo.setText(u.getCargo());
+        ctRua.setText(u.getEndereco().getRua());
+        ctBairro.setText(u.getEndereco().getBairro());
+        ctCidade.setText(u.getEndereco().getCidade());
+        ctNumero.setText(String.valueOf(u.getEndereco().getNumero()));
+        ctCep.setText(u.getEndereco().getCep());
+
+
+
 
 
 

@@ -1,27 +1,21 @@
 package br.com.karenaraujo.projetoloja.model;
 
-
 import java.util.Date;
 
 public class CategoriaProduto {
-    
+
+    private int codigo;
     private String nome;
-    private String codigo;
-    private String descricao;    
-    private double valor;
-    private Date datafabricacao;
+    private String descricao;
 
     public CategoriaProduto() {
     }
 
-   
-    public double getValor() {
-        return valor;
+    @Override
+    public String toString() {
+        return nome;
     }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
+    
 
     public String getNome() {
         return nome;
@@ -31,23 +25,13 @@ public class CategoriaProduto {
         this.nome = nome;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-
-    public Date getDatafabricacao() {
-        return datafabricacao;
-    }
-
-    public void setDatafabricacao(Date datafabricacao) {
-        this.datafabricacao = datafabricacao;
-    }
-
-   
 
     public String getDescricao() {
         return descricao;
@@ -57,11 +41,5 @@ public class CategoriaProduto {
         this.descricao = descricao;
     }
 
-    @Override
-    public String toString() {
-        return "CategoriaProduto{" + "nome=" + nome + ", codigo=" + codigo + ", descricao=" + descricao + ", valor=" + valor + ", datafabricacao=" + datafabricacao + '}';
-    }
-
-   
-   
+    
 }

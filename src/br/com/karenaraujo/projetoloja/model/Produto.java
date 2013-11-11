@@ -1,30 +1,55 @@
 package br.com.karenaraujo.projetoloja.model;
 
-
-
 import java.util.Date;
 
-public class Produto extends CategoriaProduto{
-    
+public class Produto extends CategoriaProduto {
+
+    private String nome;
     private String qntEstoque;
-    private Date datacompra;
+    private double valor;
+    private Date datafabricacao;
+    private CategoriaProduto categoriaproduto;
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public Date getDatafabricacao() {
+        return datafabricacao;
+    }
+
+    public void setDatafabricacao(Date datafabricacao) {
+        this.datafabricacao = datafabricacao;
+    }
+
+    public CategoriaProduto getCategoriaproduto() {
+        return categoriaproduto;
+    }
+
+    public void setCategoriaproduto(CategoriaProduto categoriaproduto) {
+        this.categoriaproduto = categoriaproduto;
+    }
 
     @Override
     public String toString() {
-        return "Produto{" + "qntEstoque=" + qntEstoque + ", datacompra=" + datacompra + '}';
+        return nome;
     }
 
-    public Produto(String qntEstoque, Date datacompra) {
-        this.qntEstoque = qntEstoque;
-        this.datacompra = datacompra;
+    public Produto() {
     }
 
-    public Date getDatacompra() {
-        return datacompra;
+    public String nome() {
+        return nome;
     }
 
-    public void setDatacompra(Date datacompra) {
-        this.datacompra = datacompra;
+    public void nome(String nome) {
+        this.nome = nome;
+
+
     }
 
     public String getQntEstoque() {
@@ -34,8 +59,4 @@ public class Produto extends CategoriaProduto{
     public void setQntEstoque(String qntEstoque) {
         this.qntEstoque = qntEstoque;
     }
-    public Produto(){
-        
-    }
-    
 }
