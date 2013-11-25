@@ -9,6 +9,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -16,39 +19,20 @@ import java.sql.Statement;
  */
 public class ConnectionFactory {
 
-    private static final String STR_CONEXAO = "jdbc:mysql://localhost:3306/";
-    private static final String DATABASE = "projetoloja";
-    private static final String USER = "root";
-    private static final String PASSWORD = "";
+   private static final String UNIT_NAME = 
+            "ProjetoLojaPU";
+    private EntityManagerFactory emf = null;
+    private EntityManager em = null;
 
-    public static Connection getConnection() throws SQLException {
-        try {
-            return DriverManager.getConnection(STR_CONEXAO + DATABASE, USER, PASSWORD);
-        } catch (Exception e) {
-            throw new SQLException(e.getMessage());
-
+    public EntityManager getEntityManager() {
+        if (emf == null){
+            emf = Persistence.
+                    createEntityManagerFactory
+                    (UNIT_NAME);
         }
-    }
-
-    public static void closeConnection(Connection con) throws SQLException {
-        if (con != null) {
-            con.close();
+        if (em == null){
+            em = emf.createEntityManager();
         }
-
-    }
-
-    public static void closeConnection(Connection con, Statement stmt) throws SQLException {
-        if (stmt != null) {
-            stmt.close();
-        }
-        closeConnection(con);
-
-    }
-
-    public static void closeConnection(Connection con, Statement stmt, ResultSet rs) throws SQLException {
-        if (rs != null) {
-            rs.close();
-        }
-        closeConnection(con, stmt);
+        return em;
     }
 }

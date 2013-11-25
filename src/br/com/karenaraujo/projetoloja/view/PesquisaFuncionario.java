@@ -31,25 +31,15 @@ public class PesquisaFuncionario extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         paineldeRolagem = new javax.swing.JScrollPane();
-        jLabel2 = new javax.swing.JLabel();
-        ctPesquisar = new javax.swing.JTextField();
         btRemover = new javax.swing.JButton();
         btInserir = new javax.swing.JButton();
         Atualizar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
         paineldeRolagem.setBackground(new java.awt.Color(51, 255, 255));
-
-        jLabel2.setText("Pesquisar:");
-
-        ctPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ctPesquisarActionPerformed(evt);
-            }
-        });
 
         btRemover.setBackground(new java.awt.Color(51, 255, 255));
         btRemover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/remove.png"))); // NOI18N
@@ -84,31 +74,19 @@ public class PesquisaFuncionario extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(paineldeRolagem)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(126, Short.MAX_VALUE)
                 .addComponent(btRemover)
                 .addGap(31, 31, 31)
                 .addComponent(btInserir)
                 .addGap(27, 27, 27)
                 .addComponent(Atualizar)
                 .addGap(60, 60, 60))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ctPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(paineldeRolagem, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ctPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btRemover)
                     .addComponent(btInserir)
@@ -164,24 +142,10 @@ public class PesquisaFuncionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_AtualizarActionPerformed
 
-    private void ctPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctPesquisarActionPerformed
-        String nome = ctPesquisar.getText();
-        FuncionarioController fc = new FuncionarioController();
-        tabelmodelo.setNumRows(0);
-        for (Funcionario f : fc.listByNome(nome)) {
-            tabelmodelo.addRow(new Object[]{
-                f.getCodigo(),
-                f.getNome(),
-                f.getCpf(),
-                f.getLogin(),});
-        }
-    }//GEN-LAST:event_ctPesquisarActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atualizar;
     private javax.swing.JButton btInserir;
     private javax.swing.JButton btRemover;
-    private javax.swing.JTextField ctPesquisar;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane paineldeRolagem;
     // End of variables declaration//GEN-END:variables
@@ -197,7 +161,7 @@ public class PesquisaFuncionario extends javax.swing.JFrame {
 
     private void preencherJTable() {
         FuncionarioController fc = new FuncionarioController();
-        for (Funcionario f : fc.listTodos()) {
+        for (Funcionario f : fc.listarTodos()) {
             tabelmodelo.addRow(new Object[]{f.getCodigo(), f.getNome(), f.getCpf(), f.getLogin()});
         }
     }

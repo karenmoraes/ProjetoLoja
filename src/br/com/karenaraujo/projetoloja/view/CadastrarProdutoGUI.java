@@ -41,7 +41,8 @@ public class CadastrarProdutoGUI extends javax.swing.JFrame {
         
         
         ProdutoController pc = new ProdutoController();
-        Produto p = pc.listById(idProduto);
+        Produto p = pc.listarId(idProduto);
+        txCodigo.setText(String.valueOf(p.getCodigo()));
         txNome.setText(p.getNome());
         txqntEstoque.setText(p.getQntEstoque());
         txValor.setText(String.valueOf(p.getValor()));        
@@ -79,7 +80,7 @@ public class CadastrarProdutoGUI extends javax.swing.JFrame {
         btSalvar = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -97,6 +98,7 @@ public class CadastrarProdutoGUI extends javax.swing.JFrame {
 
         cxcCategoriapro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        txCodigo.setEditable(false);
         txCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txCodigoActionPerformed(evt);
@@ -221,22 +223,22 @@ public class CadastrarProdutoGUI extends javax.swing.JFrame {
         
         
         
-        Produto pr = new Produto();
+      
         if (!(txCodigo.getText().equals("")) || (txCodigo.getText().equals(null))) {
-            pr.setCodigo(Integer.parseInt(txCodigo.getText()));
+            p.setCodigo(Integer.parseInt(txCodigo.getText()));
         }
         ProdutoController pc = new ProdutoController();
-        
-        if (pr.getCodigo() == 0) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        if (p.getCodigo() == 0) {
             int id = pc.salvar(p);
-            modelo.addRow(new Object[]{id, p.getNome(), p.getQntEstoque(), p.getValor(), p.getDatafabricacao(), p.getCategoriaproduto()});
+            modelo.addRow(new Object[]{id, p.getNome(), p.getQntEstoque(), p.getValor(),sdf.format(p.getDatafabricacao()), p.getCategoriaproduto()});
             JOptionPane.showMessageDialog(null, " Produto cadastrado com sucesso");
             
         } else {
             int id = pc.salvar(p);
             if (id > 0) {
-                // modelo.removeRow(linhaSelecionada);
-                modelo.addRow(new Object[]{id, p.getNome(), p.getQntEstoque(), p.getValor(), p.getDatafabricacao(), p.getCategoriaproduto()});
+                 modelo.removeRow(linhaSelecionada);
+                modelo.addRow(new Object[]{id, p.getNome(), p.getQntEstoque(), p.getValor(), sdf.format(p.getDatafabricacao()), p.getCategoriaproduto()});
                 JOptionPane.showMessageDialog(null, "Produto editado com sucesso");
             }
         }
@@ -278,7 +280,7 @@ public class CadastrarProdutoGUI extends javax.swing.JFrame {
         //Buscar na base de dados os cursos cadastrados
         List<CategoriaProduto> produtos = new ArrayList<>();
         CategoriaProdutoController cpc = new CategoriaProdutoController();
-        produtos = cpc.listAll();
+        produtos = cpc.listarTodos();
 
         //Preencher o combo com os cursos que estão na lista
         for (int linha = 0; linha < produtos.size(); linha++) {
@@ -296,7 +298,7 @@ public class CadastrarProdutoGUI extends javax.swing.JFrame {
         //Buscar na base de dados os cursos cadastrados
         List<CategoriaProduto> produtos = new ArrayList<>();
         CategoriaProdutoController cpc = new CategoriaProdutoController();
-        produtos = cpc.listAll();
+        produtos = cpc.listarTodos();
 
         //Preencher o combo com os cursos que estão na lista
         for (int linha = 0; linha < produtos.size(); linha++) {

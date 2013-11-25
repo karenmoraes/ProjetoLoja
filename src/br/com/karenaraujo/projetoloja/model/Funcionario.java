@@ -1,9 +1,15 @@
 package br.com.karenaraujo.projetoloja.model;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class Funcionario extends Pessoa {
 
+    @Id
+    @GeneratedValue
     private int codigo;
   
   

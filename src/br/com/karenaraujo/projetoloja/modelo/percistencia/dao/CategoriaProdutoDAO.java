@@ -12,14 +12,7 @@ import java.util.List;
  *
  * @author ezio_joao
  */
-public interface CategoriaProdutoDAO {
-
-    int Salvar(CategoriaProduto cp);
-    int inserir(CategoriaProduto cp);
-    boolean remover(int codigo);
-    List<CategoriaProduto> listAll();
-    CategoriaProduto listById(int codigo);
-    int update(CategoriaProduto f);
-    List<CategoriaProduto> listByNome(String nome);
+public interface CategoriaProdutoDAO extends DAO
+        <CategoriaProduto, Integer>{
     
 }

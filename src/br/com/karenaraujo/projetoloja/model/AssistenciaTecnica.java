@@ -1,26 +1,22 @@
 
 package br.com.karenaraujo.projetoloja.model;
 
-import java.util.Date;
 
 
-
-public class AssistenciaTecnica extends Cliente {
-    private Produto p = new Produto();
+public class AssistenciaTecnica  {
+  
+    private Produto pro;
     private String descricao;
 
     public AssistenciaTecnica() {
     }
 
-   
-  
-
     public Produto getP() {
-        return p;
+        return pro;
     }
 
     public void setP(Produto p) {
-        this.p = p;
+        this.pro = p;
     }
 
     public String getDescricao() {
@@ -31,9 +27,13 @@ public class AssistenciaTecnica extends Cliente {
         this.descricao = descricao;
     }
 
+   
+  
+
+
     @Override
     public String toString() {
-        return "AssistenciaTecnica{" + "p=" + p + ", descricao=" + descricao + '}';
+        return "AssistenciaTecnica{" + "p=" + pro + ", descricao=" + descricao + '}';
     }
     
    

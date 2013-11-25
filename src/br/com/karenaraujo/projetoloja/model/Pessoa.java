@@ -3,16 +3,22 @@ package br.com.karenaraujo.projetoloja.model;
 
 
 import java.util.Date;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-
+@MappedSuperclass
 public class Pessoa {
     
     private String nome;
     private String cpf;
     private String rg;
+    @Temporal(TemporalType.DATE)
     private Date datanascimento;
     private String sexo;
     private String telefone;
+    @OneToOne
     private Endereco endereco;
 
     public Endereco getEndereco() {

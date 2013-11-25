@@ -34,7 +34,8 @@ public class CadastrarCategoriaProdutoGUI extends javax.swing.JFrame {
         initComponents();
 
         CategoriaProdutoController cpc = new CategoriaProdutoController();
-        CategoriaProduto cp = cpc.listById(codigocategoriapro);
+        CategoriaProduto cp = cpc.listarId(codigocategoriapro);
+        txCodigo.setText(String.valueOf(cp.getCodigo()));
         txNome.setText(cp.getNome());
         atxDescricao.setText(cp.getDescricao());
         
@@ -59,7 +60,7 @@ public class CadastrarCategoriaProdutoGUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         atxDescricao = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -187,7 +188,7 @@ public class CadastrarCategoriaProdutoGUI extends javax.swing.JFrame {
         } else {
             int id = cpc.salvar(cp);
             if (id > 0) {
-                // modelo.removeRow(linhaSelecionada);
+                 modelo.removeRow(linhaSelecionada);
                 modelo.addRow(new Object[]{id, cp.getNome(), cp.getDescricao()});
                 JOptionPane.showMessageDialog(null, "Categoria do Produto editado com sucesso");
             }

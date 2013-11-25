@@ -1,9 +1,15 @@
 package br.com.karenaraujo.projetoloja.model;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class CategoriaProduto {
 
+    @Id
+    @GeneratedValue
     private int codigo;
     private String nome;
     private String descricao;
@@ -15,7 +21,6 @@ public class CategoriaProduto {
     public String toString() {
         return nome;
     }
-    
 
     public String getNome() {
         return nome;
@@ -40,6 +45,4 @@ public class CategoriaProduto {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
-    
 }

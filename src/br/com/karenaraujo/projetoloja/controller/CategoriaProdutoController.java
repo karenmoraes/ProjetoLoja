@@ -8,30 +8,26 @@ import java.util.List;
 public class CategoriaProdutoController {
 
     public int salvar(CategoriaProduto cp) {
+      
         CategoriaProdutoDAO dao = new CategoriaProdutoDAOImplements();
-        return dao.Salvar(cp);
-
-    }      
-
-    public boolean remover(int codigo) {
-        CategoriaProdutoDAO dao = new CategoriaProdutoDAOImplements();
-        return dao.remover(codigo);
+        return dao.save(cp).getCodigo();
     }
-
-    public List<CategoriaProduto> listAll() {
+    
+    public List<CategoriaProduto> listarTodos(){
         CategoriaProdutoDAO dao = new CategoriaProdutoDAOImplements();
-        return dao.listAll();
+        return dao.listarTodos(CategoriaProduto.class);
     }
-
-    public CategoriaProduto listById(int codigo) {
+    
+    public boolean remover (int codigo){
         CategoriaProdutoDAO dao = new CategoriaProdutoDAOImplements();
-        return dao.listById(codigo);
+        return dao.remover(CategoriaProduto.class,codigo);
     }
-
-    public List<CategoriaProduto> listByNome(String nome) {
+    
+    public CategoriaProduto listarId (int codigo){
         CategoriaProdutoDAO dao = new CategoriaProdutoDAOImplements();
-        return dao.listByNome(nome);
+        return dao.buscarCodigo(CategoriaProduto.class,codigo);
     }
+    
 
    
     

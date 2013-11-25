@@ -3,7 +3,7 @@ package br.com.karenaraujo.projetoloja.model;
 
 
 
-public class Fornecedor extends CategoriaProduto {
+public class Fornecedor  {
 
     private String nome;
     private String cnpj;

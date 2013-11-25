@@ -1,8 +1,6 @@
 package br.com.karenaraujo.projetoloja.model;
 
-import java.util.Date;
-
-public class Venda extends Produto {
+public class Venda  {
 
     private int qntvendido;
    

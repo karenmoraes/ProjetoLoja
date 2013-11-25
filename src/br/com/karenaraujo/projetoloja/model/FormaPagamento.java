@@ -1,12 +1,13 @@
 
 package br.com.karenaraujo.projetoloja.model;
 
-import java.util.Date;
 
 
 
 
-public class FormaPagamento extends Pessoa{
+
+public class FormaPagamento {
+    
     private Produto p = new Produto();
     private int compra;
     private int vezes;

@@ -10,39 +10,25 @@ import java.util.List;
 
 public class ProdutoController {
 
-    public int salvar(Produto p) {
+     
+    public int salvar(Produto p){
         ProdutoDAO dao = new ProdutoDAOImplements();
-        return dao.Salvar(p);
-
+        return dao.save(p).getCodigo();
     }
-
-    public int update(Produto p) {
+    
+    public List<Produto> listarTodos(){
         ProdutoDAO dao = new ProdutoDAOImplements();
-        return dao.update(p);
+        return dao.listarTodos(Produto.class);
     }
-
-    public int inserir(Produto p) {
+    
+    public boolean remover (int codigo){
         ProdutoDAO dao = new ProdutoDAOImplements();
-        return dao.inserir(p);
+        return dao.remover(Produto.class,codigo);
     }
-
-    public boolean remover(int codigo) {
+    
+    public Produto listarId (int codigo){
         ProdutoDAO dao = new ProdutoDAOImplements();
-        return dao.remover(codigo);
+        return dao.buscarCodigo(Produto.class,codigo);
     }
-
-    public List<Produto> listAll() {
-        ProdutoDAO dao = new ProdutoDAOImplements();
-        return dao.listAll();
-    }
-
-    public Produto listById(int codigo) {
-        ProdutoDAO dao = new ProdutoDAOImplements();
-        return dao.listById(codigo);
-    }
-
-    public List<Produto> listByNome(String nome) {
-        ProdutoDAO dao = new ProdutoDAOImplements();
-        return dao.listByNome(nome);
-    }
+    
 }

@@ -9,46 +9,26 @@ public class FuncionarioController {
 
     public int salvar(Funcionario f) {
         FuncionarioDAO dao = new FuncionarioDAOImplements();
-        return dao.Salvar(f);
-
+        return dao.save(f).getCodigo();
     }
-        public int update(Funcionario f) {
-            FuncionarioDAO dao = new FuncionarioDAOImplements();
-            return dao.update(f);
-        }
 
-    public int inserir(Funcionario f) {
+    public List<Funcionario> listarTodos() {
         FuncionarioDAO dao = new FuncionarioDAOImplements();
-        return dao.inserir(f);
+        return dao.listarTodos(Funcionario.class);
     }
 
     public boolean remover(int codigo) {
         FuncionarioDAO dao = new FuncionarioDAOImplements();
-        return dao.remover(codigo);
+        return dao.remover(Funcionario.class, codigo);
     }
 
-    public List<Funcionario> listAll() {
+    public Funcionario listarId(int codigo) {
         FuncionarioDAO dao = new FuncionarioDAOImplements();
-        return dao.listAll();
+        return dao.buscarCodigo(Funcionario.class, codigo);
     }
 
-    public Funcionario listById(int codigo) {
+    public boolean Login(String login, String senha) {
         FuncionarioDAO dao = new FuncionarioDAOImplements();
-        return dao.listById(codigo);
+        return dao.procurarLogin(login, senha);
     }
-
-    public List<Funcionario> listByNome(String nome) {
-        FuncionarioDAO dao = new FuncionarioDAOImplements();
-        return dao.listByNome(nome);
-    }
-
-    public List<Funcionario> listTodos() {
-        FuncionarioDAO dao = new FuncionarioDAOImplements();
-        return dao.listAll();
-    }
-    public boolean Login(String login, String senha){
-        FuncionarioDAO f = new FuncionarioDAOImplements();
-        return f.Login(login, senha);
-    }
-    
 }
